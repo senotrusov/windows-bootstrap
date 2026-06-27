@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: Deployment tests
+name: Bootstrap tests
 
 on:
   push:
@@ -24,8 +24,8 @@ on:
     - cron: '0 6 * * 0'
 
 jobs:
-  test-windows-deployment:
-    name: Test Windows deployment script
+  test-windows-bootstrap:
+    name: Test Windows bootstrap script
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -36,9 +36,9 @@ jobs:
       - name: Checkout repository (for context or future use)
         uses: actions/checkout@v4
 
-      - name: Run deployment script from remote source
+      - name: Run bootstrap script from remote source
         shell: powershell
         run: |
-          Write-Output "Downloading and executing deployment script..."
+          Write-Output "Downloading and executing bootstrap script..."
           iwr -UseBasicParsing -Headers @{ "Cache-Control" = "no-cache" } `
-            "https://raw.githubusercontent.com/senotrusov/windows-box-deployment/main/deploy.ps1" | iex
+            "https://raw.githubusercontent.com/senotrusov/windows-bootstrap/main/deploy.ps1" | iex

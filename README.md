@@ -19,7 +19,7 @@
 Open PowerShell as an administrator, then run the following command and wait for it to finish:
 
 ```sh
-iwr -UseBasicParsing "https://raw.githubusercontent.com/senotrusov/windows-box-deployment/main/deploy.ps1" | iex
+iwr -UseBasicParsing "https://raw.githubusercontent.com/senotrusov/windows-bootstrap/main/deploy.ps1" | iex
 ```
 
 ## License
